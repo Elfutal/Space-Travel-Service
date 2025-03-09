@@ -34,6 +34,10 @@
             </div>
           </fieldset>
         </div>
+        <div id="warning-message" class="govuk-error-message" style="display: none;">
+            <span class="govuk-visually-hidden">Error:</span>
+            Please select a destination before continuing.
+        </div>
         {{ govukButton({ text: "Continue" }) }}
       </form>
     </div>
