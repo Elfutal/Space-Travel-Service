@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        What is your destination?
+      </h1>
+      <form class="form" action="/check-answers" method="post">
+        {# <input type="hidden" name="enterFullName" value="{{ enterFullName }}">
+        <input type="hidden" name="enterAddress" value="{{ enterAddress }}"> #}
+        <p>Select a destination</p>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="destination-mars" name="destination" type="radio" value="Mars">
+                <label class="govuk-label govuk-radios__label" for="destination-mars">Mars</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="destination-the-moon" name="destination" type="radio" value="The Moon">
+                <label class="govuk-label govuk-radios__label" for="destination-the-moon">The Moon</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        {{ govukButton({ text: "Continue" }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

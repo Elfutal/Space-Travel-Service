@@ -1,9 +1,24 @@
-//
-// For guidance on how to create routes see:
-// https://prototype-kit.service.gov.uk/docs/create-routes
-//
+const express = require('express');
+const router = express.Router();
+const govukPrototypeKit = require('govuk-prototype-kit');
 
-const govukPrototypeKit = require('govuk-prototype-kit')
-const router = govukPrototypeKit.requests.setupRouter()
+// Route for details page
+router.post('/destination', (req, res) => {
+    const { enterFullName, enterAddress } = req.body;
+    res.render('destination', {
+        enterFullName,
+        enterAddress
+    });
+});
 
-// Add your routes here
+// Route for check-answers page
+router.post('/check-answers', (req, res) => {
+    const { enterFullName, enterAddress, destination } = req.body;
+    res.render('check-answers', {
+        enterFullName,
+        enterAddress,
+        destination
+    });
+});
+
+module.exports = router;

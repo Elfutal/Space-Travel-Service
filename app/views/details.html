@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/destination" method="post">
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="enter-full-name">
+      What is your Full Name?  </h1>
+       <p>
+           Enter your Full Name
+        </p>
+  <input class="govuk-input" id="enter-full-name" name="enterFullName" type="text">
+</div>
+
+    <div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="enter-address">
+      What is your Address?
+    </label>
+  </h1>
+  <p>
+           Enter your Address
+        </p>
+  <input class="govuk-input" id="enter-address" name="enter-address" type="text">
+</div>
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
