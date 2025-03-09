@@ -18,32 +18,71 @@
 
       <form class="form" action="/destination" method="post">
 
-<div class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="enter-full-name">
-      What is your Full Name?  </h1>
-       <p>
-           Enter your Full Name
-        </p>
-  <input class="govuk-input" id="enter-full-name" name="enterFullName" type="text">
-</div>
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="enter-full-name">
+              What is your Full Name?  
+            </label>
+          </h1>
+          <p>Enter your Full Name</p>
+          <input class="govuk-input" id="enter-full-name" name="enterFullName" type="text">
+          <div id="full-name-warning" class="govuk-warning-text" style="display: none;">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              Please enter your full name.
+            </strong>
+          </div>
+        </div>
 
-    <div class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="enter-address">
-      What is your Address?
-    </label>
-  </h1>
-  <p>
-           Enter your Address
-        </p>
-  <input class="govuk-input" id="enter-address" name="enter-address" type="text">
-</div>
-{{ govukButton({
-  text: "Continue"
-}) }}
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="enter-address">
+              What is your Address?
+            </label>
+          </h1>
+          <p>Enter your Address</p>
+          <input class="govuk-input" id="enter-address" name="enter-address" type="text">
+          <div id="address-warning" class="govuk-warning-text" style="display: none;">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              Please enter your address.
+            </strong>
+          </div>
+        </div>
+
+        {{ govukButton({
+          text: "Continue",
+          id: "continue-button"
+        }) }}
 
       </form>
+
+      <script>
+        document.getElementById('continue-button').addEventListener('click', function(event) {
+          var fullName = document.getElementById('enter-full-name').value;
+          var address = document.getElementById('enter-address').value;
+          var isValid = true;
+
+          document.getElementById('full-name-warning').style.display = 'none';
+          document.getElementById('address-warning').style.display = 'none';
+
+          if (!fullName) {
+            document.getElementById('full-name-warning').style.display = 'block';
+            isValid = false;
+          }
+
+          if (!address) {
+            document.getElementById('address-warning').style.display = 'block';
+            isValid = false;
+          }
+
+          if (!isValid) {
+            event.preventDefault(); // Prevent form submission
+          }
+        });
+      </script>
 
     </div>
   </div>
