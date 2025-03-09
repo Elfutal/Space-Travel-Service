@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "dev": "govuk-prototype-kit dev",
-    "serve": "govuk-prototype-kit serve",
+    "dev": "USERNAME=Elfutal PASSWORD=verystrongpassword govuk-prototype-kit dev",
+    "serve": "USERNAME=Elfutal PASSWORD=verystrongpassword govuk-prototype-kit serve",
     "start": "USERNAME=Elfutal PASSWORD=verystrongpassword govuk-prototype-kit start"
   },
   "dependencies": {
