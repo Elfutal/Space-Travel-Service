@@ -2,7 +2,9 @@
   "scripts": {
     "dev": "govuk-prototype-kit dev",
     "serve": "govuk-prototype-kit serve",
-    "start": "govuk-prototype-kit start"
+    "start": "govuk-prototype-kit start",
+    "NODE_ENV": "production",
+    "PASSWORD": "verystrongpassword"
   },
   "dependencies": {
     "@govuk-prototype-kit/common-templates": "2.0.1",
