@@ -16,14 +16,14 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-xl">
-        Check your answers before sending your application
+        Check your answers before sending your destination application
       </h1>
 
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              text: "Question 1"
+              text: "Full Name"
             },
             value: {
              text: data['enter-full-name']
@@ -40,7 +40,7 @@
           },
           {
             key: {
-              text: "Question 2"
+              text: "Address"
             },
             value: {
               text: data['enter-address']
@@ -57,7 +57,7 @@
           },
           {
             key: {
-              text: "Question 3"
+              text: "Destination"
             },
             value: {
               text: data['destination']
