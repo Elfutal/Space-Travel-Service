@@ -78,7 +78,9 @@
             isValid = false;
           }
 
-          if (!isValid) {
+         if (isValid) {
+            window.location.href = 'destination.html'; // Redirect to destination.html
+          } else {
             event.preventDefault(); // Prevent form submission
           }
         });
