@@ -25,7 +25,7 @@
             </label>
           </h1>
           <p>Enter your Full Name</p>
-          <input class="govuk-input" id="enter-full-name" name="enterFullName" type="text">
+          <input class="govuk-input" id="enter-full-name" name="enter-full-name" type="text">
           <div id="full-name-warning" class="govuk-warning-text" style="display: none;">
             <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
             <strong class="govuk-warning-text__text">
@@ -52,37 +52,42 @@
           </div>
         </div>
 
-        {{ govukButton({
+        {# {{ govukButton({
           text: "Continue",
           id: "continue-button"
-        }) }}
+        }) }} #}
+<button type="submit" id="continue-button" class="govuk-button">Continue</button>
 
       </form>
 
-      <script>
-        document.getElementById('continue-button').addEventListener('click', function(event) {
-          var fullName = document.getElementById('enter-full-name').value;
-          var address = document.getElementById('enter-address').value;
-          var isValid = true;
+   <script>
+  document.getElementById('continue-button').addEventListener('click', function(event) {
+      var fullName = document.getElementById('enter-full-name').value.trim();
+      var address = document.getElementById('enter-address').value.trim();
+      var isValid = true;
 
-          document.getElementById('full-name-warning').style.display = 'none';
-          document.getElementById('address-warning').style.display = 'none';
+      // Hide warnings initially
+      document.getElementById('full-name-warning').style.display = 'none';
+      document.getElementById('address-warning').style.display = 'none';
 
-          if (!fullName) {
-            document.getElementById('full-name-warning').style.display = 'block';
-            isValid = false;
-          }
+      if (!fullName) {
+          document.getElementById('full-name-warning').style.display = 'block';
+          isValid = false;
+      }
 
-          if (!address) {
-            document.getElementById('address-warning').style.display = 'block';
-            isValid = false;
-          }
+      if (!address) {
+          document.getElementById('address-warning').style.display = 'block';
+          isValid = false;
+      }
 
-          if (!isValid) {
-            event.preventDefault(); // Prevent form submission
-          }
-        });
-      </script>
+      if (!isValid) {
+          event.preventDefault(); // Prevent form submission if validation fails
+      } else {
+          document.querySelector('.form').submit(); // Ensure form is submitted if validation passes
+      }
+  });
+</script>
+
 
     </div>
   </div>

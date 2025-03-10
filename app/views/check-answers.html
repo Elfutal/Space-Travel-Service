@@ -18,62 +18,62 @@
       <h1 class="govuk-heading-xl">
         Check your answers before sending your destination application
       </h1>
-
-      {{ govukSummaryList({
-        rows: [
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Full Name"
+      },
+      value: {
+        text: data['enter-full-name']
+      },
+      actions: {
+        items: [
           {
-            key: {
-              text: "Full Name"
-            },
-            value: {
-             text: data['enter-full-name']
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: " What is your Full Name? "
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Address"
-            },
-            value: {
-              text: data['enter-address']
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "What is your Address?"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Destination"
-            },
-            value: {
-              text: data['destination']
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "Destination"
-                }
-              ]
-            }
+            href: "/details",
+            text: "Change",
+            visuallyHiddenText: "What is your Full Name?"
           }
         ]
-      }) }}
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        text: data['enter-address']
+      },
+      actions: {
+        items: [
+          {
+            href: "/details",
+            text: "Change",
+            visuallyHiddenText: "What is your Address?"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Destination"
+      },
+      value: {
+        text: data['destination']
+      },
+      actions: {
+        items: [
+          {
+            href: "/destination",
+            text: "Change",
+            visuallyHiddenText: "Destination"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
 
       <h2 class="govuk-heading-m">
         Now send your application
